@@ -55,7 +55,7 @@ const HomeBanner = () => {
                 <p className="text-white text-[10px] md:text-xs font-bold tracking-[0.4em] mb-4 opacity-80">
                   {slide.subtitle}
                 </p>
-                <h2 className="text-white text-6xl md:text-8xl font-serif italic tracking-tighter leading-none">
+                <h2 className="text-white text-6xl md:text-8xl  leading-none">
   <Typewriter
     options={{
       autoStart: true,
