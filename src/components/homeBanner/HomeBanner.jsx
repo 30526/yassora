@@ -83,18 +83,6 @@ const HomeBanner = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-
-      {/* Custom Styles to hide default Swiper pagination dots if they look too generic */}
-      <style jsx global>{`
-        .swiper-pagination-bullet {
-          background: white !important;
-          opacity: 0.5;
-        }
-        .swiper-pagination-bullet-active {
-          background: #ffaa0b !important; /* Matches your TravelEase Amber */
-          opacity: 1;
-        }
-      `}</style>
     </div>
   );
 };

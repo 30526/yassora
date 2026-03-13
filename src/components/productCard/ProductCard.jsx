@@ -1,5 +1,6 @@
 import React from "react";
 import { Heart, Eye, ShoppingBag } from "lucide-react";
+import { Link } from "react-router";
 
 const ProductCard = ({ product }) => {
   // Get the lowest price for the "Starting at" display
@@ -33,9 +34,12 @@ const ProductCard = ({ product }) => {
                 </button>
               ))}
             </div>
-            <button className="w-full bg-white text-black py-3 text-[10px] font-black tracking-[0.2em] flex items-center justify-center gap-2 hover:bg-black hover:text-white transition-all">
-              <ShoppingBag size={14} /> ADD TO CART
-            </button>
+
+            <Link to={`product/${product._id}`}>
+              <button className="w-full bg-white text-black py-3 text-xs font-semibold tracking-[0.2em] flex items-center justify-center gap-2 hover:bg-black hover:text-white cursor-pointer transition-all">
+                <ShoppingBag size={14} /> View Details
+              </button>
+            </Link>
           </div>
         </div>
 

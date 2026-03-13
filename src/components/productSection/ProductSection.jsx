@@ -31,7 +31,7 @@ const ProductSection = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-20">
         {products.map((product) => (
-          <FadeUp key={product.id}>
+          <FadeUp key={product._id}>
             <ProductCard product={product} />
           </FadeUp>
         ))}

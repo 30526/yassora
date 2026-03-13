@@ -1,23 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 @plugin "daisyui";
-
-h1, h2 {
-  font-family: "Playfair Display", serif;
-  font-optical-sizing: auto;
-}
 
 body {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
 }
-
+h1,
+h2 {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+}
 
 /* ========== BRAND VARIABLES ========== */
 :root {
   --primary-color: #111111;
- --secondary-color: linear-gradient(90deg, #d4af37, #f5e06a, #bfa46f); /* gold gradient */
+  --secondary-color: linear-gradient(
+    90deg,
+    #d4af37,
+    #f5e06a,
+    #bfa46f
+  ); /* gold gradient */
   --accent-color: #f5f5f5;
   --text-dark: #222222;
   --text-light: #777777;
@@ -30,10 +34,8 @@ body {
   background: var(--secondary-color);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
 }
-
-
 
 h3 {
   font-size: 1.5rem;
