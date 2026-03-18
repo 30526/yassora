@@ -90,6 +90,15 @@ export const CartProvider = ({ children }) => {
     );
   };
 
+  // Aliases for compatibility
+  const getCartCount = getTotalItems;
+  const getCartTotal = getTotalPrice;
+
+  // Open/Close cart helpers
+  const openCart = () => setIsCartOpen(true);
+  const closeCart = () => setIsCartOpen(false);
+  const toggleCart = () => setIsCartOpen(!isCartOpen);
+
   const value = {
     cartItems,
     addToCart,
@@ -98,8 +107,13 @@ export const CartProvider = ({ children }) => {
     clearCart,
     getTotalItems,
     getTotalPrice,
+    getCartCount, // Alias
+    getCartTotal, // Alias
     isCartOpen,
     setIsCartOpen,
+    openCart,
+    closeCart,
+    toggleCart,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

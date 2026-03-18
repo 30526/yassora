@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Search, User, Heart, ShoppingBag, Menu, X } from "lucide-react";
 import { useLocation, Link } from "react-router"; // Ensure using react-router-dom
+import { useCart } from "../../context/CartContext";
+import CartSidebar from "../cartSideBar/CartSideBar";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { setIsCartOpen,getCartCount } = useCart();
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
@@ -26,15 +29,13 @@ const Navbar = () => {
     ? isScrolled
       ? "bg-black/90 backdrop-blur-md py-3 border-b border-white/10"
       : "bg-transparent py-6 border-b border-transparent"
-    : ` border-b border-gray-100 ${isScrolled? "bg-transparent backdrop-blur-sm py-3" : "bg-white/90 py-6"}`;
+    : ` border-b border-gray-100 ${isScrolled ? "bg-transparent backdrop-blur-sm py-3" : "bg-white/90 py-6"}`;
 
   const textColor = isHomePage ? "text-white" : "text-black";
 
   return (
     <>
-      <nav
-        className={`${navPosition} ${navStyles}`}
-      >
+      <nav className={`${navPosition} ${navStyles}`}>
         <div className="px-6 lg:px-12 flex items-center justify-between relative">
           {/* 1. LEFT SECTION: Mobile Toggle & Desktop Search */}
           <div className="flex items-center gap-6 flex-1">
@@ -112,9 +113,14 @@ const Navbar = () => {
               className={`hidden md:block ${textColor} cursor-pointer`}
             />
             <div className="relative cursor-pointer hover:scale-110 transition-transform">
-              <ShoppingBag size={22} strokeWidth={1.5} className={textColor} />
+              <ShoppingBag
+                onClick={() => setIsCartOpen(true)}
+                size={22}
+                strokeWidth={1.5}
+                className={textColor}
+              />
               <span className="absolute -top-1.5 -right-2 bg-red-600 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center border border-white">
-                0
+                {getCartCount()}
               </span>
             </div>
           </div>
@@ -178,6 +184,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      <CartSidebar></CartSidebar>
     </>
   );
 };
